@@ -18,13 +18,13 @@ RUN apt-get install -y tar git curl nano wget dialog net-tools build-essential
 # Install Python and Basic Python Tools
 RUN apt-get install -y python python-dev python-distribute python-pip
 # Copy the application folder inside the container
-ADD /dt228_cloud /dt228_cloud
+ADD /my_application /my_application
 # Get pip to download and install requirements:
-RUN pip install -r /dt228_cloud/requirements.txt
+RUN pip install -r /my_application/requirements.txt
 # Expose ports
-EXPOSE 80
+EXPOSE 8080
 # Set the default directory where CMD will execute
-WORKDIR /dt228_cloud
+WORKDIR /my_application
 # Set the default command to execute
 # when creating a new container
 # i.e. using CherryPy to serve the application
